@@ -1,17 +1,17 @@
-import {BaseInputProps} from "@/lib/types/baseComponentTypes";
+import {BaseSelectProps} from "@/lib/types/baseComponentTypes";
 import {Controller, get, useFormContext, FieldError} from "react-hook-form";
 
-const BaseInput = ({
-	name = "",
-	type = "text",
+const BaseSelect = ({
+	name,
 	labelName,
-	className = "",
+	options,
 	fontSize,
+	className = "",
 	disabled = false,
 	onChange,
 	onBlur,
 	...props
-}: BaseInputProps) => {
+}: BaseSelectProps) => {
 	const {
 		control,
 		formState: {errors},
@@ -24,7 +24,7 @@ const BaseInput = ({
 			<label
 				className={
 					`block text-sm font-medium text-gray-700 mb-1` +
-					(fontSize ? `text-${fontSize}` : "")
+					(fontSize ? ` text-${fontSize}` : "")
 				}
 				htmlFor={name}
 			>
@@ -34,9 +34,8 @@ const BaseInput = ({
 				name={name}
 				control={control}
 				render={({field}) => (
-					<input
+					<select
 						{...field}
-						type={type}
 						className={`${className} border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white`}
 						disabled={disabled}
 						onChange={(e) => {
@@ -47,12 +46,19 @@ const BaseInput = ({
 							field.onBlur();
 							onBlur?.(e);
 						}}
-					/>
+					>
+						<option value=''>Select option</option>
+						{options.map((opt) => (
+							<option key={opt.value} value={opt.value}>
+								{opt.label}
+							</option>
+						))}
+					</select>
 				)}
 				{...props}
 			/>
 			{error && (
-				<div className=''>
+				<div className='mt-1'>
 					<span
 						id={`${name}-error`}
 						role='alert'
@@ -66,4 +72,4 @@ const BaseInput = ({
 	);
 };
 
-export default BaseInput;
+export default BaseSelect;
