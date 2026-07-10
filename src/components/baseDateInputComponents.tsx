@@ -47,6 +47,7 @@ const BaseDateInput = ({
           return (
             <input
               type="date"
+              id={name}
               value={stringValue}
               className={`${className} border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white`}
               disabled={disabled}
