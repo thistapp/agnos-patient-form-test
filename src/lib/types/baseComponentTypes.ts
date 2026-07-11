@@ -1,5 +1,5 @@
-import { Dayjs } from "dayjs";
-import { RegisterOptions } from "react-hook-form";
+import {Dayjs} from "dayjs";
+import {RegisterOptions} from "react-hook-form";
 
 export interface BaseButtonProps {
 	children: React.ReactNode;
@@ -36,7 +36,7 @@ export interface BaseTextareaProps {
 export interface BaseSelectProps {
 	name: string;
 	labelName: string;
-	options: { value: string; label: string }[];
+	options: {value: string; label: string}[];
 	fontSize?: string;
 	className?: string;
 	disabled?: boolean;
@@ -54,4 +54,12 @@ export interface BaseDateInputProps {
 	rules?: RegisterOptions;
 	onChange?: (value: Dayjs | null) => void;
 	onBlur?: () => void;
+}
+
+export interface BaseDisplayProps {
+	fontSize?: string;
+	className?: string;
+	titleSection?: string;
+	sessionData?: string | null | undefined;
+	placeholder?: string;
 }
