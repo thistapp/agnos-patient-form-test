@@ -64,8 +64,8 @@ const Page = () => {
       );
     };
 
-    socket.onerror = (error) => {
-      // console.error("[WebSocket] Connection error:", error);
+    socket.onerror = () => {
+      // console.error("[WebSocket] Connection error");
     };
 
     socket.onclose = () => {
