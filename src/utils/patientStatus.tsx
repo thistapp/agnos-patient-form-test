@@ -6,26 +6,26 @@ const PatientStatus = (status: PatientSession["status"]) => {
 		case "typing":
 			return (
 				<span className='inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 animate-pulse'>
-					Active (Typing)
+					🟢 Active (Typing)
 				</span>
 			);
 		case "inactive":
 			return (
 				<span className='inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200'>
-					Inactive
+					🟡 Inactive
 				</span>
 			);
 		case "submitted":
 			return (
 				<span className='inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200'>
-					Submitted
+					✅ Submitted
 				</span>
 			);
 		case "joined":
 		default:
 			return (
 				<span className='inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-slate-50 text-slate-600 border border-slate-200'>
-					Connected
+					🔵 Connected
 				</span>
 			);
 	}
